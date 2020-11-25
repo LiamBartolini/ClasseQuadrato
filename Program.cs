@@ -27,13 +27,11 @@ namespace Bartolini.Liam._4H.ClasseQuadrato
             Console.Write($"\t{q1 > q2}");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Q qInt = q1.Intersezione(q1, q2);
+
             Console.WriteLine("\n\nEsito Intersezione quadrati: ");
 
-            if (qInt.Area == 0.00)
-                Console.WriteLine("I quadrati non si intersecano!");
-            else
-                Console.WriteLine(qInt);
+            Console.WriteLine(Q.Intersezione(q1, q2));
+            
             Console.ResetColor();
         }
     }

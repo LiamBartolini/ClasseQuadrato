@@ -71,7 +71,7 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
                 return false;
         }
 
-        public Q Intersezione(Q q1, Q q2)
+        static public Q Intersezione(Q q1, Q q2)
         {
             Q qInt = new Q();
 
