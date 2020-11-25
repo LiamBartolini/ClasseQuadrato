@@ -79,10 +79,22 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
         {
             Q qInt = new Q();
 
+            //qInt.Lato = q2.Lato - (q1.PosX + q1.Lato);
+            //int altezza = q1.Lato - (q1.PosY - q2.PosY);
+
+            // Se il secondo quadrato è completmente dentro il primo ritorno il secondo quadrato
+            if (q2.PosX + q2.Lato > q1.PosX && q2.PosX + q2.Lato < q1.PosX + q1.Lato)
+                return q2;
+
+            //qInt.Lato = q1.Lato - (q2.PosX - q1.PosX);
+            //int altezza = q2.Lato - (q1.PosY - q2.PosY);
+
+            //qInt.Area = altezza;
             // Controllo se il secondo quadrato interseca il primo
-            if (q2.PosX < q1.PosX + q1.Lato && q2.PosY > q1.PosY - q1.Lato && q2.PosY < q1.PosY)
+            if (q2.PosX > q1.PosX + q1.Lato && q2.PosX < q1.PosX && q2.PosY > q1.PosY - q1.Lato && q2.PosY < q1.PosY)
             {
-                qInt.Lato = q2.Lato - (q1.PosX - q2.PosX);
+                //qInt.Lato = q2.Lato - (q1.PosX - q2.PosX);
+                qInt.Lato = q2.Lato - (q1.PosX + q1.Lato);
                 int altezza = q1.Lato - (q1.PosY - q2.PosY);
 
                 qInt.Area = altezza;
