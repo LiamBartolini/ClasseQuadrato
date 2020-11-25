@@ -34,10 +34,12 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
             set => _posy = value;
         }
 
+        // Per calcolo dell'Area, Perimetro e Diagonale utilizzo le proprietà
         public double Area
         {
             get => _area;
 
+            // Passo un valore e lo moltiplico per il lato, in modo da calcolare anche l'area dei rettangoli
             private set => _area = value * Lato;
         }
 
@@ -55,6 +57,7 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
             private set => _diagonale = value * Math.Sqrt(2);
         }
 
+        // Sovrascrivo l'operatore '>'
         static public bool operator > (Q q1, Q q2)
         {
             if (q1.Area > q2.Area)
@@ -63,6 +66,7 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
                 return false;
         }
        
+        // Si deve sovrascrivere anche il suo opposto
         static public bool operator < (Q q1, Q q2)
         {
             if (q1.Area < q2.Area)
@@ -75,6 +79,7 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
         {
             Q qInt = new Q();
 
+            // Controllo se il secondo quadrato interseca il primo
             if (q2.PosX < q1.PosX + q1.Lato && q2.PosY > q1.PosY - q1.Lato && q2.PosY < q1.PosY)
             {
                 qInt.Lato = q2.Lato - (q1.PosX - q2.PosX);
@@ -82,19 +87,19 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
 
                 qInt.Area = altezza;
 
-                return qInt; //ritorna un oggetto con l'area del quadrato interessato
+                return qInt; // Ritorna un oggetto con l'area del quadrato interessato
             }
-            else if (q1.PosX + q1.Lato > q2.PosX && q1.PosY > q2.PosY - q2.Lato && q1.PosY < q2.PosY && q1.PosY < q2.PosY)
+            else if (q1.PosX + q1.Lato > q2.PosX && q1.PosY > q2.PosY - q2.Lato && q1.PosY < q2.PosY && q1.PosY < q2.PosY) // Controllo se il primo quadrato interseca il secondo
             {
                 qInt.Lato = q1.Lato - (q2.PosX - q1.PosX);
                 int altezza = q2.Lato - (q2.PosY - q1.PosY);
 
                 qInt.Area = altezza;
 
-                return qInt; //ritorna un poligono nullo
+                return qInt; // Ritorna un poligono nullo
             }
             else
-                return qInt;
+                return qInt; // Ritorna un poligono nullo
         }
 
         public Q(int l, int px, int py)
@@ -103,7 +108,6 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
             PosX = px;
             PosY = py;
 
-            
             Area = Lato;
             Perimetro = Lato;
             Diagonale = Lato;
@@ -114,6 +118,7 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
 
         }
 
+        // Sovrascrivo il metodo ToString per formattare l'output
         public override string ToString() => $"Area: {Area:n2} cm^2";
     }
 }
