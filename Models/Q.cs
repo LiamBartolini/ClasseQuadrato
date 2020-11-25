@@ -87,7 +87,7 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
                 return q1;
 
             // Controllo se il secondo quadrato interseca il primo
-            if (q2.PosX > q1.PosX + q1.Lato && q2.PosX < q1.PosX && q2.PosY > q1.PosY - q1.Lato && q2.PosY < q1.PosY)
+            if (q2.PosX >= q1.PosX + q1.Lato && q2.PosX <= q1.PosX && q2.PosY >= q1.PosY - q1.Lato && q2.PosY <= q1.PosY)
             {
                 //qInt.Lato = q2.Lato - (q1.PosX - q2.PosX);
                 qInt.Lato = q2.Lato - (q1.PosX + q1.Lato);
@@ -97,7 +97,7 @@ namespace Bartolini.Liam._4H.ClasseQuadrato.Models
 
                 return qInt; // Ritorna un oggetto con l'area del quadrato interessato
             }
-            else if (q1.PosX + q1.Lato > q2.PosX && q1.PosY > q2.PosY - q2.Lato && q1.PosY < q2.PosY && q1.PosY < q2.PosY) // Controllo se il primo quadrato interseca il secondo
+            else if (q1.PosX + q1.Lato >= q2.PosX && q1.PosY >= q2.PosY - q2.Lato && q1.PosY <= q2.PosY && q1.PosY <= q2.PosY) // Controllo se il primo quadrato interseca il secondo
             {
                 qInt.Lato = q1.Lato - (q2.PosX - q1.PosX);
                 int altezza = q2.Lato - (q2.PosY - q1.PosY);
