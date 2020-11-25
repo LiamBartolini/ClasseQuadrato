@@ -7,8 +7,8 @@ namespace Bartolini.Liam._4H.ClasseQuadrato
     {
         static void Main(string[] args)
         {
-            Q q1 = new Q(7, 7, -2);
-            Q q2 = new Q(4, 2, -4);
+            Q q1 = new Q(2, 2, 2);
+            Q q2 = new Q(4, 1, 2);
 
             Console.WriteLine("QUADRATO 1: ");
             Console.WriteLine($"{q1.Area:n2}\tcm^2");
