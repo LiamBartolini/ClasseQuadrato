@@ -31,7 +31,7 @@ namespace Bartolini.Liam._4H.ClasseQuadrato
             Console.WriteLine("\n\nEsito Intersezione quadrati: ");
 
             Console.WriteLine(Q.Intersezione(q1, q2));
-            
+
             Console.ResetColor();
         }
     }
